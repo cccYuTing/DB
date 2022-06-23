@@ -33,13 +33,13 @@
 ---
 - 輸入SQL語法可查詢（以下會有幾個範例）
 
-![選擇功能](https://img.onl/FlcVmM)
+![查詢](https://img.onl/pCERGH)
 
 ---
 <h3 align="center">Example</h3>
 
 ---
- - 假設卡車 8879 在一次碰撞中被毀。查找事故發生時在那輛卡車上有包裹的所有客戶。
+ 1. - 假設卡車 8879 在一次碰撞中被毀。查找事故發生時在那輛卡車上有包裹的所有客戶。
 ```sql
 SELECT p.client_id,p.name 
 FROM delivery_log as dinner join package_overall as p on p.package_id=d.package_id
@@ -47,9 +47,10 @@ where d.trans_s_id=(SELECT s.schedule_id
                     FROM schedule as s
                     where s.site_id='8779' and s.start_time='2022-01-01 17:00:00')
 ```
+![](https://img.onl/xMhaq)
+---
 
-
- - 查找事故發生前該卡車最後一次成功交付。
+ 2. - 查找事故發生前該卡車最後一次成功交付。
 ```sql
 SELECT * FROM delivery_log as d
 where d.trans_s_id=(SELECT s.schedule_id 
@@ -58,35 +59,42 @@ where d.trans_s_id=(SELECT s.schedule_id
 order by update_time desc
 limit 1;
 ```
+![](https://img.onl/5rRW3b)
 
+---
 
- - 查找過去一年運送包裹最多的客戶。
+ 3. - 查找過去一年運送包裹最多的客戶。
 ```sql
 SELECT client_id as c_id,name as name, count(*) as count FROM package_overall
 group by client_id
 order by count desc
 limit 1
 ```
+![](https://img.onl/UzcnEW)
+---
 
-
- - 找出過去一年在運費上花費最多的客戶。
+ 4. - 找出過去一年在運費上花費最多的客戶。
 ```sql
 SELECT client_id as c_id,name as name, sum(price) as sum FROM package_overall
 group by client_id
 order by sum desc
 limit 1
 ```
+![](https://img.onl/7juZB0)
+---
 
-
- - 找出未在承諾時間內送達的包裹。
+ 5. - 找出未在承諾時間內送達的包裹。
 ```sql
 SELECT * FROM package_overall
 where ontime_ornot='false'
 ```
+![](https://img.onl/8XAPbo)
+---
 
 ## use
 - Java
 - MySQLWorkBench
+- 資料庫 140.127.74.186 -> 410077033
 
 
 ## java程式碼
@@ -103,7 +111,6 @@ where ontime_ornot='false'
 | NewShiftSchedule.java|交通工具排班表  |
 | TestMain.java        |主程式          |
 | UpdatePackage.java   |更新包裹狀態    |
-
 
 
 ---
