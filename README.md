@@ -15,21 +15,16 @@
 ### Client
 ---
 (1) client -> 選擇功能
-- Add a package / Order summary / Meter pricing
+-  Order summary / Meter pricing
 
 ![選擇功能](https://img.onl/h9tHM8)
 
-(2) client / Add a package -> 新增包裹
-- 輸入寄件人、收件人資訊以及付費方式（完成後顯示訂單編號及運費）
-
-![新增包裹](https://img.onl/qr6Wbp)
-
-(3) client / Order summary -> 包裹進度查詢
+(2) client / Order summary -> 包裹進度查詢
 - 輸入包裹ID即可查詢包裹進度
 
 ![包裹進度查詢](https://img.onl/WtlWPi)
 
-(4) client / Meter pricing -> 包裹運費試算
+(3) client / Meter pricing -> 包裹運費試算
 - 輸入包裹資訊後可試算運費
 
 ![運費試算](https://img.onl/ufFou3)
